@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write    # ✅ 이 줄이 중요합니다. github-actions[bot]에게 write 권한을 줍니다.
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -15,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: "3.11"
 
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material
